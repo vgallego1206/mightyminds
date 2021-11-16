@@ -1,15 +1,40 @@
 /** @jsxImportSource @emotion/react */
 import React from "react";
 import { css } from "@emotion/react";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import Avatar from "@material-ui/core/Avatar";
-import AppBar from "@material-ui/core/AppBar";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
+import {
+  Button,
+  IconButton,
+  Avatar,
+  AppBar,
+  Grid,
+  Typography,
+} from "@material-ui/core";
 import HelpIcon from "@material-ui/icons/Help";
 import TabItems from "./TabItems";
 import logo from "../../logo/owl-logo.png";
+
+const tabItems = [
+  {
+    value: 0,
+    label: "Home",
+  },
+  {
+    value: 1,
+    label: "Classes",
+  },
+  {
+    value: 2,
+    label: "Planner",
+  },
+  {
+    value: 3,
+    label: "School Data",
+  },
+  {
+    value: 4,
+    label: "Library",
+  },
+];
 
 export default function Header() {
   return (
@@ -19,7 +44,9 @@ export default function Header() {
         color="primary"
         position="static"
         elevation={0}
-        sx={{ zIndex: 0 }}
+        css={css`
+          z-index: 0;
+        `}
       >
         <Grid container alignItems="center" spacing={1}>
           <Grid item>
@@ -41,7 +68,7 @@ export default function Header() {
               width: 67%;
             `}
           >
-            <TabItems />
+            <TabItems items={tabItems} />
           </Grid>
           <Grid
             item
@@ -59,9 +86,11 @@ export default function Header() {
             </Button>
           </Grid>
           <Grid item>
-            <Typography css={css`
-                  text-align: right;
-                `}>
+            <Typography
+              css={css`
+                text-align: right;
+              `}
+            >
               Jasmine Finn <br />
               Teacher Account
             </Typography>
