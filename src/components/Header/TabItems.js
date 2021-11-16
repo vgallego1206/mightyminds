@@ -1,16 +1,17 @@
 import React from "react";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+import PropTypes from "prop-types";
+import { Tabs, Tab } from "@material-ui/core";
 
-export default function TabItems() {
-
+export default function TabItems({ items }) {
   return (
     <Tabs value={0} textColor="inherit">
-      <Tab label="Home" />
-      <Tab label="Classes" />
-      <Tab label="Planner" />
-      <Tab label="School Data" />
-      <Tab label="Library" />
+      {items.map((option) => (
+        <Tab label={option.label} value={option.value} />
+      ))}
     </Tabs>
   );
 }
+
+TabItems.propTypes = {
+  items: PropTypes.object,
+};
