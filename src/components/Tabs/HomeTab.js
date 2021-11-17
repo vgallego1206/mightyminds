@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Typography, Container, Link } from "@material-ui/core";
+import { Typography, Container, Link, Box } from "@material-ui/core";
 import ClassesItems from "./ClassesItems";
+import SideBar from "./SideBar";
 
 const classItems = [
   {
@@ -56,7 +57,10 @@ export default function HomeTab() {
           View all classes
         </Link>
       </Typography>
-      <ClassesItems items={classItems} />
+      <Box display="flex" alignItems="flex-start">
+        <ClassesItems items={classItems} />
+        <SideBar />
+      </Box>
     </Container>
   );
 }

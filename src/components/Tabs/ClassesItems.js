@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import PropTypes from "prop-types";
-import { FlashOnTwoTone, StarTwoTone } from "@material-ui/icons";
-import { Typography, Grid, Box } from "@material-ui/core";
+import { FlashOnTwoTone, StarTwoTone, Add } from "@material-ui/icons";
+import { Typography, Grid, Box, Button } from "@material-ui/core";
 
 export default function ClassesItems({ items }) {
   return (
@@ -12,13 +12,14 @@ export default function ClassesItems({ items }) {
       css={css`
         padding-top: 24px;
         grid-gap: 24px;
+        width: 75% !important;
       `}
     >
       {items.map((option) => (
         <Grid
           item
           css={css`
-            width: 300px;
+            width: 270px;
             border-top: 5px solid ${option.color} !important;
             border: 1px solid gray;
           `}
@@ -58,7 +59,7 @@ export default function ClassesItems({ items }) {
               {option.activity > 0 && (
                 <label
                   css={css`
-                    margin-left: 80px;
+                    margin-left: 50px;
                     border: 1px solid lightgray;
                     background: lightgray;
                   `}
@@ -83,6 +84,24 @@ export default function ClassesItems({ items }) {
             >
               Class calendar
             </Typography>
+            <Button
+              //variant="outlined"
+              css={css`
+                border-radius: 0 !important;
+                border-top: 1px solid gray !important;
+                color: gray !important;
+                justify-content: left !important;
+                width: 100%;
+                margin-top: 8px !important;
+              `}
+            >
+              <Add
+                css={css`
+                  padding-right: 8px;
+                `}
+              />
+              Add Student
+            </Button>
           </Box>
         </Grid>
       ))}
